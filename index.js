@@ -6,6 +6,9 @@ const {userRouter} = require("./routes/user.route")
 const {bookRouter} = require("./routes/book.route")
 const dotenv = require("dotenv")
 dotenv.config()
+const cors = require("cors")
+
+app.use(cors());
 
 PORT = process.env.PORT || 3000
 
