@@ -4,7 +4,7 @@ const {auth}  = require("../middleware/auth.mddleware")
 
 const bookRouter = express.Router()
 
-bookRouter.use(auth)
+
 
 bookRouter.get("/",async(req,res)=>{
     try {
@@ -14,6 +14,8 @@ bookRouter.get("/",async(req,res)=>{
          res.status(404).json({error:error.message})
     }    
 })
+
+bookRouter.use(auth)
 
 bookRouter.post("/create",async(req,res)=>{
     try {
