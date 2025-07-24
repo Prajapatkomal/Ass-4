@@ -32,7 +32,7 @@ bookRouter.post("/create",async(req,res)=>{
 
 bookRouter.get("/mybook",async(req,res)=>{
     try {
-         const book = await BookModel.find({userId:req.body.userId})
+         const book = await BookModel.find({userId:req.userId})
         return res.status(200).json(book)
     } catch (error) {
          res.status(404).json({error:error.message})

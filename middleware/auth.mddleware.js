@@ -10,11 +10,11 @@ const auth = (req,res,next)=>{
    }
      try {
      const decoded = jwt.verify(token,process.env.SECRETKEY)
-   req.body.userId = decoded.userId
+   req.userId = decoded.userId
    next()
 
    } catch (error) {
-      return res.status(401).json({ msg: "Invalid token" });
+      return res.status(400).json({error:error.message});
    }
 }
 
